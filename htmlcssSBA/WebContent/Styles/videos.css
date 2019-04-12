@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+/* Styling for the Videos page to display them in a grid */
+.myvideos-container{
+        width: 100%;
+        padding: 5px;
+        margin: 0px auto;
+        background-color: black;
+    }
+
+    /* Defining a Grid */
+        .wrapper {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-gap: 10px;
+    background-color: #444;
+    color: #444;
+   
+    }
+
+        .box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 30;
+        }

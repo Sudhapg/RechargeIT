@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/userlogin.css">
+</head>
+<body>
+
+    <div class="main_container">
+        <header>
+        <div class="menu_container">
+            <div class="menu_item">
+                <nav>
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="About.html">About</a></li> 
+							<li><a href="contactUs.html">Contact</a></li>
+							<li><a href="userlogin.html">Login</a></li>
+							<li><a href="registrationPage.html">Registration</a></li>
+			                <div class="dropdown" >
+                                <button class="dropbtn" style="border:none;">My Album
+                                <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="Mypictures.html">My Pictures</a>
+                                    <a href="Myvideos.html">My Videos</a>
+                                </div>
+                            </div>
+                    </ul>
+                    </nav>
+                </div>
+                </div>
+           </header>
+           <div class="content_page" style="width:80%;">
+                        <form>
+                            <h4> Registration Page </h4>
+                            <div class="input-container">
+                            <input class="input-field" id="name" type="text" placeholder="Enter your username" autofocus required
+                             pattern ="(?=^.{5,8}$)(?=.*[A-Za-z0-9\W+]).*$">
+                            </div>
+                            <br/>
+                            <div class="input-container">
+                            <input class="input-field" id = "pwd" type="password"  placeholder="Enter your password" required 
+                            pattern ="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                            </div>
+                            <br/>
+                            <div class="input-container">
+                            <input class="input-field" id = "pwd" type="password"  placeholder="Confirm password" required 
+                            pattern ="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                            </div>
+                            <br/>
+                            <button class="btn" type="submit">Register</button>
+
+                        </form>
+                    </div>
+        <footer>
+         &copy; Copyrights 2019, All rights reserved
+         </footer>
+</div> <!-- Closing the main div-->
+
+</body>
+</html>

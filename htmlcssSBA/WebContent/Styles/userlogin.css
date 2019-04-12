@@ -1,0 +1,40 @@
+@charset "ISO-8859-1";
+/* styling for the userlogin page form */
+form{
+			width: 300px;
+			height: 350px;
+			padding: 10px 35px 10px 35px;
+			background-color:darkorchid;
+            color: white;
+            margin: 0px auto;
+		}
+    .input-container {
+	  display: flex;
+	  width: 100%;
+      margin-bottom: 15px;
+      
+	}
+
+    .input-field {
+	  width: 100%;
+	  padding: 10px;
+	  outline: none;
+	}
+    
+    .input-field:focus {
+	  border: 2px solid red;
+	}
+
+    .btn {
+	  background-color: dodgerblue;
+	  color: white;
+	  padding: 15px 20px;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	  opacity: 0.9;
+	}
+
+	.btn:hover {
+	  opacity: 1;
+	}

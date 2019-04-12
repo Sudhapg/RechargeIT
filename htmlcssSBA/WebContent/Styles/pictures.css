@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+
+/* styling for the picture page to display the pictures in columns and row */
+.picture-container{
+        width: 100%;
+        padding: 10px;
+        margin: 0px auto;
+        background-color: black;
+    }
+        * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+
+    /* clear the floats */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
