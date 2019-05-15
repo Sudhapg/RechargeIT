@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myNgApp">
+    <div  style = "background-color: yellow;" ng-controller="parentController">
+        Message: {{message}}
+        <div style = "background-color: green;" ng-controller = "childController">
+            Parent Message: {{message}} <br>
+            Child Message: {{message}}
+        </div>
+        Child Message: {{message}}
+    </div>
+    <!-- this message doesnt display anything as it is outside the div-->
+    <!-- when you move ng-app from body to the first div it print the message as it is
+    as it considers it as an html element-->
+    {{message}}
+
+    <script>
+        var ngApp = angular.module('myNgApp',[]);
+
+        ngApp.controller('parentController',function($scope){
+            $scope.message = "This is parentController";
+        });
+
+        ngApp.controller('childController',function($scope){
+            $scope.message = "This is childController";
+        });
+    </script>
+
+
+</body>
+</html>

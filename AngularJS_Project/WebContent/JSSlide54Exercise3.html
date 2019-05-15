@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app = "myApp" ng-controller = "myController">
+    <div>
+   Enter first name:<input type="text" ng-model="firstName"> <br>
+   <br>
+   Enter last name: <input type="text" ng-model= "lastName"> <br>
+   <br>
+   Enter fees: <input type="text" ng-model="fees"> <br>
+   <br>
+   Enter subject: <input type="text" ng-model="subject"> <br>
+   <br>
+   <p>Name in Uppercase: {{firstName | uppercase}}</p>
+   <p> Name in Lowercase: {{lastName | lowercase}}</p>
+    <p> fees: {{fees|currency:'$':2}}</p> 
+    <p ng-model="SortOrder"> Subject: </p>
+    <ul>
+        <li ng-repeat = "s in (Studentreport| filter:{subject:subject})|orderBy:marks">
+            {{s.subject+',marks:'+s.marks}}}
+        </li>
+    </ul>
+
+   </div>
+
+   <script>
+       var app = angular.module('myApp',[]);
+       app.controller('myController',function($scope){
+           $scope.Studentreport = [{subject:'Maths',marks:'60'},
+                                    {subject:'English',marks:'80'},
+                                    {subject:'Biology',marks:'70'}]
+            $scope.SortOrder = '+marks';
+       });
+
+   </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myNgApp">
+    <div ng-controller="parentController">
+        Controller Name: {{controllerName}} <br>
+        Message: {{message}} <br>
+        <div style= "margin:10px 0 10px 20px;" ng-controller="childController">
+            Controller Name: {{controllerName}} <br>
+            Message: {{message}} <br>
+        </div>
+    </div>
+    <div ng-controller="siblingController">
+        Controller Name: {{controllerName}} <br>
+        Message: {{message}} <br>
+    </div>
+
+    <script>
+            var ngApp = angular.module('myNgApp',[]);
+            ngApp.controller('parentController',function($scope,$rootScope){
+                $scope.controllerName = "parentController";
+                $rootScope.message = "Hello developers";
+            });
+
+            ngApp.controller('childController',function($scope,$rootScope){
+                $scope.controllerName = 'childController';
+                 $rootScope.message = "Hello developers";
+            });
+
+            ngApp.controller('siblingController',function($scope){
+
+            });
+    </script>
+</body>
+</html>

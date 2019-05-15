@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app = "myApp" ng-controller = "myController">
+
+    <div>
+        Enter Name: 
+        <input type="text" ng-model="studentname">
+        <br> <br>
+        <table>
+            <tr>
+                <th>ID  &nbsp;&nbsp;</th>
+                <th>Name  &nbsp;&nbsp;</th>
+                <th>Email  &nbsp;&nbsp;</th>
+            </tr>
+        </table>
+        
+    </div>
+    <div ng-repeat= "s in repos | filter:{Name:studentname} | orderBy:SortOrder">
+        <table>
+            
+            <tr>
+                <td> {{s.ID}}&nbsp;&nbsp;&nbsp;</td>
+                <td> {{s.Name}}&nbsp;&nbsp;&nbsp;</td>
+                <td> {{s.Email}}</td>
+            </tr> 
+                 
+       </table> 
+    </div>
+    <script>
+        var app=angular.module("myApp",[]);
+
+        app.controller("myController",function($scope,$http){
+            $http.get('https://raw.githubusercontent.com/ahmshahparan/BNY01/master/plist.json?token=AQkwHzRXjf_IKMDFZTA8jEl2Lni7cq-cks5ck-p6wA%3D%3D')
+            .then(function (response){
+                $scope.repos = response.data.records;
+                $scope.SortOrder = '+Name';
+            },function(response){
+                alert("Error!!!");
+          
+            })
+        });
+       
+    </script>
+
+</body>
+</html>

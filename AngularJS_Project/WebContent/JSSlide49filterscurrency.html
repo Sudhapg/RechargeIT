@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        Default currency: {{person.salary | currency}} <br>
+        Custom currency identifier: {{person.salary | currency: '$'}} <br>
+        No Fraction: {{ person.salary | currency:'$':0}} <br> | 
+        Fraction 2: {{person.salary|currency: '$':2}} <br>
+        Fraction 2: <span ng-bind="person.salary|currency:'$':2"></span>
+    </div>
+    <script>
+        var myApp = angular.module('myApp',[]);
+
+        myApp.controller("myController",function ($scope){
+            $scope.person = {firstName: 'James', lastName: 'Bond',salary:10000}
+        });
+    </script>
+</body>
+</html>

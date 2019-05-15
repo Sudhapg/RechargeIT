@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <Script src="js/angular.min.js"></Script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!--  <link rel="stylesheet" href="ninja.css"> */ -->
+
+    <style>
+       .btn {
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.danger {background-color: #f44336;} /* Red */ 
+.danger:hover {background: #da190b;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;} 
+
+
+    </style>
+
+    
+   
+</head>
+<body ng-app="ninjaApp" ng-controller = "ninjaCtrl">
+
+<div class="container">
+  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#createuser">Create User</a></li>
+    <li><a data-toggle="tab" href="#menu2">See Our People</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+        <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                     <div class="item active">
+                        <img src="girl-2189253__340.jpg" alt="Chania">
+                        <div class="carousel-caption">
+                        <!-- <h3>Los Angeles</h3>
+                            <p>LA is always so much fun!</p> -->
+                        </div>
+                     </div>
+
+                    <div class="item">
+                        <img src="codeninjas.png" alt="Chicago">
+                        <div class="carousel-caption">
+                            <h3>Chicago</h3>
+                            <p>Thank you, Chicago!</p>
+                        </div>
+                    </div>
+
+                <div class="item">
+                    <img src="fitness-woman-2893887__340.jpg" alt="New York">
+                    <div class="carousel-caption">
+                        <h3>New York</h3>
+                        <p>We love the Big Apple!</p>
+                    </div>
+                </div>
+             </div>     
+  
+    </div>
+
+    <div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Click for Secret Message
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Modal Window</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+I Love Bootstrap !!
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+</div> <!-- added a button for modal -->
+    </div>
+    <div id="createuser" class="tab-pane fade">
+       <!-- <h3> Create User</h3> -->
+       <div class = "row">
+           <div class = "col-sm-4">
+     
+        <div class="form_container">
+
+            <form class = "form-group" name="userForm" ng-submit="createUser()">
+            <h4>Create User</h4>
+            <div>
+            <label>Name:</label>
+            <div>
+            <input type="text" ng-model="user.name" placeholder="Maria.."  required />
+            </div>
+            </div>
+            <div>
+            <label>Email:</label>
+            <div>
+            <input type="email" ng-model="user.email"  placeholder="maria@perschols.org" required />
+            </div>
+            </div>
+            <div>
+            <input class= "btn success" type="submit" value="submit" ng-show="submit" 
+            ng-disabled="userForm.$invalid" />
+            <input class = "btn btn-warning" type="button" value="update" ng-click="updateUser()" ng-show="update" />
+            <input class = "btn btn-danger" type="button" value="cancel" ng-click="cancelUpdate()" ng-show="cancel" />
+            </div>
+            </form>
+
+        </div>
+        </div> <!-- closing the first column-->
+
+<div class = "col-sm-8">
+        <table class ="table table-striped">
+
+        <thead>
+        <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+        <button onclick="$('#form_tab').trigger('click')" class="btn success" ng-click="editUser(user)"> Edit</button>
+        <button class = "btn danger" ng-click="deleteUser(user)">Delete</button> <br> 
+        </td>
+        </tr>
+
+        </tbody>
+
+        </table>
+     
+        </div>
+    </div>
+    </div>
+
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>See Our People</h3>
+      
+    <a href="GroupProject2.html"> See Our People </a>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+    <script>
+        var myapp=angular.module("ninjaApp",[]);
+
+myapp.controller("ninjaCtrl", function($scope,$http) {
+$scope.didAdd="false";
+
+//create new user
+$scope.createUser = function() {
+
+$http.post('https://jsonplaceholder.typicode.com/users', $scope.user).then(
+function successfullCallback(response){
+$scope.users.push(response.data);
+},
+function errorCallBack(response){alert("Error creating user. Try again!!");}
+) ; //end of then 
+} //end of createUser
+
+
+//buttons settings
+$scope.submit=true;
+$scope.update=false;
+$scope.cancel=false;
+$scope.userid=true;
+
+//Edit user
+
+$scope.editUser = function(user){
+            $scope.user = user;
+            $scope.submit = false;
+            $scope.update = true;
+            $scope.cancel = true;
+            
+        };
+
+//Update user
+
+$scope.updateUser = function(){
+
+        //$http PUT function
+        $http.put('https://jsonplaceholder.typicode.com/users/' + $scope.user.id)
+        .then(function successCallback(response){
+            alert("User has updated successfully")
+        },function errorCallback(response){
+            alert("Error, while updating user, Try again !");
+        });
+    };
+
+//get users list
+$http.get('https://jsonplaceholder.typicode.com/users').then(
+function successfullCallback(response){$scope.users=response.data;},
+function errorCallBack(response){alert("Try again!!");}
+);
+
+
+//set $scope on cancel update button
+$scope.cancelUpdate = function(){
+$scope.user=null;
+$scope.submit=true;
+$scope.update=false;
+$scope.cancel=false;
+$scope.userid=true;
+}
+
+
+}	);
+    </script>
+
+</body>
+</html>

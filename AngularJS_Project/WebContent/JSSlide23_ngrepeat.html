@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+<style>
+    div{
+        border: 1px solid green;
+        width: 100%;
+        height: 50px;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        background-color: yellow;
+    }
+</style>
+</head>
+<body ng-app="" ng-init="students=['Max','Anna','Maria'];employees=['John','Tony','Ravi']">
+    <ol>
+        <li ng-repeat="sName in students">
+            <span ng-bind ="sName"></span>
+            <!--{{sName}} -->
+        </li>
+    </ol>
+    <div ng-repeat="sName in students">
+        {{sName}}
+    </div>
+    <div ng-repeat="semp in employees">
+        {{semp}}
+    </div>
+
+</body>
+</html>

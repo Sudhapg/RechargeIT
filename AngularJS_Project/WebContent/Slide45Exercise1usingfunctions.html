@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app = "myApp">
+    <div ng-controller = "myController">
+        <h1 ng-mousemove="Count()">Mouse Over Me!</h1>
+        {{i}}
+    </div>
+
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller("myController",function($scope){
+             $scope.i = 0;
+            $scope.Count = function(){
+            $scope.i = $scope.i + 1;
+            return $scope.i;
+        }
+    });
+            </script>
+
+</body>
+</html>

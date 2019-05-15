@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController" >
+    <form name="myForm" ng-submit = "submitStudentForm(newStudent)" >
+        Enter id number:
+        <input type="number" name="studentnumber" ng-model = "newStudent.id" required>
+        <span ng-show="myForm.studentnumber.$error.required">Id is required</span>
+         <br>
+        <br> <br>
+        Enter name:
+        <input type="text" name="studentname" ng-model ="newStudent.name" required>
+        <span ng-show="myForm.studentname.$error.required">Name is required</span>
+        <br> <br>
+        Enter email:
+        <input type="email" name="studentmail" ng-model = "newStudent.email" required>
+        <span ng-show ="myForm.studentmail.$error.email">Invalid email</span> <br> <br>
+        <button type="submit" name="submit"  >Submit</button> 
+        <br> <br>
+        <button type = "button" name="reset" ng-click = "resetForm()">Reset</button>
+          
+    </form>
+
+
+
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("myController",function($scope){
+            $scope.originalStudent = {
+                                    id: 1,
+                                    name: 'James Gosling',
+                                    email: 'jgosline@java.org'
+                                       }
+            
+            $scope.newStudent = {
+                                id: 1,
+                                    name: 'James Gosling',
+                                    email: 'jgosline@java.org'
+                                }
+                $scope.submitStudentForm = function(value){
+                    alert (value.id+"\n"+
+                            value.name+"\n"+
+                            value.email)
+                }
+
+                //Another way to do this submitStudentForm function
+               /* $scope.submitStudentForm = function() {
+                    alert ($scope.newStudent.id + "\n"+
+                             value.name+"\n"+
+                             value.email)
+                }*/
+
+                $scope.resetForm = function(){
+                    $scope.newStudent.id = $scope.originalStudent.id,
+                    $scope.newStudent.name = $scope.originalStudent.name,
+                    $scope.newStudent.email = $scope.originalStudent.email
+                }
+
+        });
+    </script>
+
+
+</body>
+</html>

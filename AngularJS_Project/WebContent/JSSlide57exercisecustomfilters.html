@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div>
+    Enter Number:<input type="text" ng-model = "number">
+   <p ng-if="number > 0"> Ordinal Number is:{{number | demofilter}} </p>
+    <p ng-if = "number < 0">This is not the right format</p>
+    </div>    
+
+    <script>
+        var app = angular.module("myApp",[]);
+        app.filter('demofilter',function(){
+            return function(input){
+                if (input[(input.length-1)] == 2&& (input[(input.length-1)] != 12)) {
+                return input + "nd"
+                }else if (input[(input.length-1)] == 3 && (input [(input.length-1)] != 13)){
+                    return input + "rd"
+                } else if ((input[(input.length-1)]==1) && (input[(input.length-1)] != 11)) {
+                    return input + "st"
+                } else {
+                    return input + "th"
+                }
+            }
+        });
+    
+
+        app.controller('myController',function($scope){
+        
+      })
+    </script>
+</body>
+</html>

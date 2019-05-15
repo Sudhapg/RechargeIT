@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myNgApp">
+    <div ng-controller="myController">
+        The message from the controller: {{message}} <br>
+      
+    </div>
+    <script>
+        var ngApp = angular.module('myNgApp',[]);
+        ngApp.controller('myController',function ($scope){
+            $scope.message = "Hello developers!";
+            $scope.languages = ['java','python','javascript','ruby'];
+        });
+    </script>
+
+
+</body>
+</html>

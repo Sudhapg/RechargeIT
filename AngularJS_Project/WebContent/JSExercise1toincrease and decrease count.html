@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app ng-init="count = 0; step=1">
+    <div>
+        <h1 ng-mousemove = "count=count+step"> Increase By: {{step}}</h1>
+        <input type="number" ng-model="step">
+        <h2>{{count}}</h2>
+        <button style="background-color:red;" ng-click = "count=0;step=1" ng-init ="step=1">Reset</button>
+
+
+    </div>
+    <div style="color:green;" ng-if="count >0">
+        <p>Count is positive</p>
+    </div>
+    <div style="color:red;" ng-if="count<0">
+        <p>Count is negative</p>
+    </div>
+</body>
+</html>

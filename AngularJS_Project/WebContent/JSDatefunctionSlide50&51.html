@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="dateCtrl">
+        <p>Date = {{today|date}}</p>
+        <p>The first name is {{firstName | uppercase}}</p>
+        <p> The last name is {{lastName | lowercase}}</p>
+    </div>
+
+    <script>
+        var app=angular.module('myApp',[]);
+        app.controller('dateCtrl',function($scope){
+            $scope.today = new Date();
+            $scope.firstName = "James";
+            $scope.lastName = "Bond";
+        });
+    </script>
+
+    <p>The date filter formats a date object to a readable format</p>
+
+</body>
+</html>

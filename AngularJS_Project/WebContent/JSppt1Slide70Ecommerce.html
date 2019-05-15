@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>E Commerce App</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller = "myController"> 
+    <table>
+        <tr ng-repeat = "b in books">
+            <td><img src="{{b.img}}"> </td>
+           <td>{{b.Name | uppercase}} </td>
+           <td>{{b.Price | currency:'$':2}} </td>
+           <td> <button type="button" ng-click = "Add(b)">+</button> </td>
+           <td> <button type="button" ng-click = "Remove(b)">-</button></td>
+            <td> Quantity:{{b.Quantity}} </td> 
+            <!--<input type="number" ng-init = "x=0" ng-model = ><br> -->
+                            
+         </tr>   
+     
+    </table>
+     <script>
+        var app = angular.module("myApp",[]);
+        app.controller ("myController",function($scope){
+
+             $scope.count = 0;
+            $scope.books = [{
+                            Name: 'Dr.Seuss',img: 'book1.jpg',Price: '50',Quantity:$scope.count},
+                            {Name:'Dairy Of Whimpy Kid',img:'book2.jpg',Price:'100',Quantity:$scope.count}
+                           ]
+                  
+                $scope.Add = function(b){
+                    alert("Inside Add")
+                    b.Quantity++;
+                   // $scope.books.Quantity = $scope.count;
+                   // alert("books.quantity is" + $scope.books.Quantity);
+                }
+
+                $scope.Remove = function(v){
+                    if ($scope.count == 0){
+                        return false;
+                    }  else {
+                        return $scope.count--;
+                    }
+                }
+        });
+
+    </script>
+
+</body>
+</html>
